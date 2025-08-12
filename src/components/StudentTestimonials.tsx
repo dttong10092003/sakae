@@ -27,7 +27,7 @@ export default function StudentTestimonials() {
   ]
 
   return (
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 pb-8">
         {/* Section Title */}
         <h2 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-8">CẢM NHẬN HỌC VIÊN SAKAE</h2>
 

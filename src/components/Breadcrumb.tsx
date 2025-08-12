@@ -1,41 +1,122 @@
-import React from 'react'
+import { Link, useLocation } from "react-router-dom";
+import { routeNameMap } from "../data/routeNameMap";
 
 interface BreadcrumbItem {
-  label: string
-  href?: string
-  isActive?: boolean
+  label: string;
+  link: string | null;
+  isActive: boolean;
 }
 
-interface BreadcrumbProps {
-  items: BreadcrumbItem[]
-}
+export default function Breadcrumb() {
+  const location = useLocation();
+  const pathnames = location.pathname.split("/").filter((x) => x);
 
-export default function Breadcrumb({ items }: BreadcrumbProps) {
+  // Create breadcrumb items array
+  const breadcrumbItems: BreadcrumbItem[] = [];
+
+  // Add home
+  breadcrumbItems.push({
+    label: "Trang chủ",
+    link: "/",
+    isActive: false
+  });
+
+  // Handle course detail page specially
+  if (pathnames[0] === "course" && pathnames[1]) {
+    breadcrumbItems.push({
+      label: "Khóa học",
+      link: "/courses",
+      isActive: false
+    });
+
+    breadcrumbItems.push({
+      label: "Chi tiết khóa học",
+      link: null,
+      isActive: true
+    });
+  }
+  // Handle news page
+  else if (pathnames[0] === "news") {
+    // Check if this is a news detail page
+    if (pathnames[1]) {
+      breadcrumbItems.push({
+        label: routeNameMap["news"] || "Tin tức",
+        link: "/news",
+        isActive: false
+      });
+
+      breadcrumbItems.push({
+        label: "Chi tiết tin tức",
+        link: null,
+        isActive: true
+      });
+    } else {
+      // Regular news listing page
+      breadcrumbItems.push({
+        label: routeNameMap["news"] || "Tin tức",
+        link: null,
+        isActive: true
+      });
+    }
+  }
+  // Handle courses page
+  else if (pathnames[0] === "courses") {
+    breadcrumbItems.push({
+      label: routeNameMap["courses"] || "Khóa học",
+      link: null,
+      isActive: true
+    });
+  }
+  // Handle search page
+  else if (pathnames[0] === "search") {
+    breadcrumbItems.push({
+      label: routeNameMap["search"] || "Tìm kiếm",
+      link: null,
+      isActive: true
+    });
+  }
+  // Handle other pages
+  else {
+    pathnames.forEach((value, index) => {
+      const isLast = index === pathnames.length - 1;
+      const to = "/" + pathnames.slice(0, index + 1).join("/");
+
+      breadcrumbItems.push({
+        label: routeNameMap[value] || value.charAt(0).toUpperCase() + value.slice(1),
+        link: isLast ? null : to,
+        isActive: isLast
+      });
+    });
+  }
+
   return (
-    <div className="bg-white border-b border-gray-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <nav className="flex items-center space-x-2 py-4 text-sm">
-          {items.map((item, index) => (
-            <React.Fragment key={index}>
-              {index > 0 && (
-                <span className="text-gray-400">/</span>
-              )}
-              {item.href && !item.isActive ? (
-                <a 
-                  href={item.href}
-                  className="text-blue-600 hover:text-blue-800 hover:underline transition-colors duration-200"
-                >
-                  {item.label}
-                </a>
-              ) : (
-                <span className={item.isActive ? "text-blue-600 font-medium" : "text-gray-600"}>
-                  {item.label}
-                </span>
-              )}
-            </React.Fragment>
-          ))}
-        </nav>
+    <div className="px-4 max-w-7xl mx-auto">
+      <div className=" bg-white py-3 border-b border-gray-200">
+        <div className="relative">
+          <ul className="flex items-center space-x-2 text-sm">
+            {breadcrumbItems.map((item, index) => (
+              <li key={index} className="flex items-center space-x-2">
+                {index > 0 && <span className="text-gray-400">/</span>}
+                {item.link ? (
+                  <Link
+                    to={item.link}
+                    className="text-[#333333] hover:text-[#1d509a] transition-colors duration-200"
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <span className={`${item.isActive ? "text-[#212529] font-medium" : "text-gray-700"
+                    }`}>
+                    {item.label}
+                  </span>
+                )}
+              </li>
+            ))}
+          </ul>
+          {/* Blue underline - nằm trong max-w-7xl container */}
+          <div className="absolute bottom-[-12px] left-0 h-0.5 bg-[#1d509a]" style={{ width: '210px' }}></div>
+        </div>
       </div>
     </div>
-  )
+  );
 }

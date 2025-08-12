@@ -1,7 +1,33 @@
 
 import { FileText, Lock, ChevronRight } from 'lucide-react'
+import { useLocation } from 'react-router-dom'
 
 export default function Header() {
+    const location = useLocation()
+    
+    // Function to check if a path is active
+    const isActive = (path: string) => {
+        if (path === '/') {
+            return location.pathname === '/'
+        }
+        return location.pathname.startsWith(path)
+    }
+    
+    // Function to check if any course route is active
+    const isCourseActive = () => {
+        return location.pathname.includes('khoa-hoc') || 
+               location.pathname.includes('course') ||
+               location.pathname.includes('luyen-thi')
+    }
+    
+    // Function to check if any guide route is active
+    const isGuideActive = () => {
+        return location.pathname.includes('phuong-thuc-thanh-toan') ||
+               location.pathname.includes('huong-dan-vao-hoc') ||
+               location.pathname.includes('chinh-sach-gia-han') ||
+               location.pathname.includes('chinh-sach-bao-mat') ||
+               location.pathname.includes('dieu-khoan-su-dung')
+    }
     return (
         <header className="bg-white">
             <div className="max-w-7xl mx-auto px-8 py-2">
@@ -39,14 +65,28 @@ export default function Header() {
                         <nav className="flex items-center">
                             <a
                                 href="/"
-                                className="text-gray-800 hover:bg-red-700 hover:text-white px-4 py-2 rounded font-medium transition-colors text-base">
+                                className={`px-4 py-2 rounded font-medium transition-colors text-base ${
+                                    isActive('/') 
+                                        ? 'bg-red-700 text-white' 
+                                        : 'text-gray-800 hover:bg-red-700 hover:text-white'
+                                }`}>
                                 TRANG CHỦ
                             </a>
-                            <a href="/gioi-thieu" className="text-gray-800 hover:bg-red-700 hover:text-white px-4 py-2 rounded font-medium transition-colors text-base">
+                            <a 
+                                href="/about" 
+                                className={`px-4 py-2 rounded font-medium transition-colors text-base ${
+                                    isActive('/about') 
+                                        ? 'bg-red-700 text-white' 
+                                        : 'text-gray-800 hover:bg-red-700 hover:text-white'
+                                }`}>
                                 GIỚI THIỆU
                             </a>
                             <div className="relative group">
-                                <button className="text-gray-800 hover:bg-red-700 hover:text-white px-4 py-2 rounded font-medium transition-colors flex items-center text-base">
+                                <button className={`px-4 py-2 rounded font-medium transition-colors flex items-center text-base ${
+                                    isCourseActive() 
+                                        ? 'bg-red-700 text-white' 
+                                        : 'text-gray-800 hover:bg-red-700 hover:text-white'
+                                }`}>
                                     KHÓA HỌC
                                     <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -74,7 +114,11 @@ export default function Header() {
                                 </div>
                             </div>
                             <div className="relative group">
-                                <button className="text-gray-800 hover:bg-red-700 hover:text-white px-4 py-2 rounded font-medium transition-colors flex items-center text-base">
+                                <button className={`px-4 py-2 rounded font-medium transition-colors flex items-center text-base ${
+                                    isGuideActive() 
+                                        ? 'bg-red-700 text-white' 
+                                        : 'text-gray-800 hover:bg-red-700 hover:text-white'
+                                }`}>
                                     HƯỚNG DẪN
                                     <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -105,7 +149,13 @@ export default function Header() {
                                     </a>
                                 </div>
                             </div>
-                            <a href="/lien-he" className="text-gray-800 hover:bg-red-700 hover:text-white px-4 py-2 rounded font-medium transition-colors text-base">
+                            <a 
+                                href="/lien-he" 
+                                className={`px-4 py-2 rounded font-medium transition-colors text-base ${
+                                    isActive('/lien-he') 
+                                        ? 'bg-red-700 text-white' 
+                                        : 'text-gray-800 hover:bg-red-700 hover:text-white'
+                                }`}>
                                 LIÊN HỆ
                             </a>
                         </nav>
