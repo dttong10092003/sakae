@@ -150,9 +150,9 @@ export default function Header() {
                                 </div>
                             </div>
                             <a 
-                                href="/lien-he" 
+                                href="/contact" 
                                 className={`px-4 py-2 rounded font-medium transition-colors text-base ${
-                                    isActive('/lien-he') 
+                                    isActive('/contact') 
                                         ? 'bg-red-700 text-white' 
                                         : 'text-gray-800 hover:bg-red-700 hover:text-white'
                                 }`}>

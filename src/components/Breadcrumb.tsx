@@ -4,7 +4,6 @@ import { routeNameMap } from "../data/routeNameMap";
 interface BreadcrumbItem {
   label: string;
   link: string | null;
-  isActive: boolean;
 }
 
 export default function Breadcrumb() {
@@ -17,22 +16,19 @@ export default function Breadcrumb() {
   // Add home
   breadcrumbItems.push({
     label: "Trang chủ",
-    link: "/",
-    isActive: false
+    link: "/"
   });
 
   // Handle course detail page specially
   if (pathnames[0] === "course" && pathnames[1]) {
     breadcrumbItems.push({
       label: "Khóa học",
-      link: "/courses",
-      isActive: false
+      link: "/courses"
     });
 
     breadcrumbItems.push({
       label: "Chi tiết khóa học",
-      link: null,
-      isActive: true
+      link: null
     });
   }
   // Handle news page
@@ -41,21 +37,18 @@ export default function Breadcrumb() {
     if (pathnames[1]) {
       breadcrumbItems.push({
         label: routeNameMap["news"] || "Tin tức",
-        link: "/news",
-        isActive: false
+        link: "/news"
       });
 
       breadcrumbItems.push({
         label: "Chi tiết tin tức",
-        link: null,
-        isActive: true
+        link: null
       });
     } else {
       // Regular news listing page
       breadcrumbItems.push({
         label: routeNameMap["news"] || "Tin tức",
-        link: null,
-        isActive: true
+        link: null
       });
     }
   }
@@ -63,16 +56,14 @@ export default function Breadcrumb() {
   else if (pathnames[0] === "courses") {
     breadcrumbItems.push({
       label: routeNameMap["courses"] || "Khóa học",
-      link: null,
-      isActive: true
+      link: null
     });
   }
   // Handle search page
   else if (pathnames[0] === "search") {
     breadcrumbItems.push({
       label: routeNameMap["search"] || "Tìm kiếm",
-      link: null,
-      isActive: true
+      link: null
     });
   }
   // Handle other pages
@@ -83,8 +74,7 @@ export default function Breadcrumb() {
 
       breadcrumbItems.push({
         label: routeNameMap[value] || value.charAt(0).toUpperCase() + value.slice(1),
-        link: isLast ? null : to,
-        isActive: isLast
+        link: isLast ? null : to
       });
     });
   }
@@ -105,8 +95,7 @@ export default function Breadcrumb() {
                     {item.label}
                   </Link>
                 ) : (
-                  <span className={`${item.isActive ? "text-[#212529] font-medium" : "text-gray-700"
-                    }`}>
+                  <span className="text-[#212529]">
                     {item.label}
                   </span>
                 )}
