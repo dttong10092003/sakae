@@ -23,7 +23,8 @@ export const routeNameMap: Record<string, string> = {
   auth: "Đăng nhập",
   login: "Đăng nhập", 
   register: "Đăng ký",
-  
+  "forgot-password": "Quên mật khẩu",
+
   // Other pages
   search: "Tìm kiếm",
   profile: "Hồ sơ cá nhân",

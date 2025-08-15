@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom'
 
 export default function Header() {
     const location = useLocation()
-    
+
     // Function to check if a path is active
     const isActive = (path: string) => {
         if (path === '/') {
@@ -12,22 +12,7 @@ export default function Header() {
         }
         return location.pathname.startsWith(path)
     }
-    
-    // Function to check if any course route is active
-    const isCourseActive = () => {
-        return location.pathname.includes('khoa-hoc') || 
-               location.pathname.includes('course') ||
-               location.pathname.includes('luyen-thi')
-    }
-    
-    // Function to check if any guide route is active
-    const isGuideActive = () => {
-        return location.pathname.includes('phuong-thuc-thanh-toan') ||
-               location.pathname.includes('huong-dan-vao-hoc') ||
-               location.pathname.includes('chinh-sach-gia-han') ||
-               location.pathname.includes('chinh-sach-bao-mat') ||
-               location.pathname.includes('dieu-khoan-su-dung')
-    }
+
     return (
         <header className="bg-white">
             <div className="max-w-7xl mx-auto px-8 py-2">
@@ -46,14 +31,14 @@ export default function Header() {
                         {/* Auth Links - Trên cùng */}
                         <div className="flex items-center space-x-4 mb-2">
                             <a
-                                href="/dang-ky"
+                                href="/register"
                                 className="text-gray-700 hover:text-red-800 text-sm transition-colors flex items-center"
                             >
                                 <FileText className="w-4 h-4 mr-1 text-blue-800" />
                                 Đăng ký tài khoản
                             </a>
                             <a
-                                href="/dang-nhap"
+                                href="/login"
                                 className="text-gray-700 hover:text-red-800 text-sm transition-colors flex items-center"
                             >
                                 <Lock className="w-4 h-4 mr-1 text-blue-800" />
@@ -65,33 +50,32 @@ export default function Header() {
                         <nav className="flex items-center">
                             <a
                                 href="/"
-                                className={`px-4 py-2 rounded font-medium transition-colors text-base ${
-                                    isActive('/') 
-                                        ? 'bg-red-700 text-white' 
-                                        : 'text-gray-800 hover:bg-red-700 hover:text-white'
-                                }`}>
+                                className={`px-4 py-2 rounded font-medium transition-colors text-base ${isActive('/')
+                                    ? 'bg-red-700 text-white'
+                                    : 'text-gray-800 hover:bg-red-700 hover:text-white'
+                                    }`}>
                                 TRANG CHỦ
                             </a>
-                            <a 
-                                href="/about" 
-                                className={`px-4 py-2 rounded font-medium transition-colors text-base ${
-                                    isActive('/about') 
-                                        ? 'bg-red-700 text-white' 
-                                        : 'text-gray-800 hover:bg-red-700 hover:text-white'
-                                }`}>
+                            <a
+                                href="/about"
+                                className={`px-4 py-2 rounded font-medium transition-colors text-base ${isActive('/about')
+                                    ? 'bg-red-700 text-white'
+                                    : 'text-gray-800 hover:bg-red-700 hover:text-white'
+                                    }`}>
                                 GIỚI THIỆU
                             </a>
                             <div className="relative group">
-                                <button className={`px-4 py-2 rounded font-medium transition-colors flex items-center text-base ${
-                                    isCourseActive() 
-                                        ? 'bg-red-700 text-white' 
+                                <a
+                                    href="/courses"
+                                    className={`px-4 py-2 rounded font-medium transition-colors flex items-center text-base ${isActive('/courses')
+                                        ? 'bg-red-700 text-white'
                                         : 'text-gray-800 hover:bg-red-700 hover:text-white'
-                                }`}>
+                                        }`}>
                                     KHÓA HỌC
                                     <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                                     </svg>
-                                </button>
+                                </a>
 
                                 {/* Dropdown Menu */}
                                 <div className="absolute left-0 w-62 bg-white border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
@@ -114,17 +98,18 @@ export default function Header() {
                                 </div>
                             </div>
                             <div className="relative group">
-                                <button className={`px-4 py-2 rounded font-medium transition-colors flex items-center text-base ${
-                                    isGuideActive() 
-                                        ? 'bg-red-700 text-white' 
+                                <a
+                                    href='/guides'
+                                    className={`px-4 py-2 rounded font-medium transition-colors flex items-center text-base ${isActive('/guides')
+                                        ? 'bg-red-700 text-white'
                                         : 'text-gray-800 hover:bg-red-700 hover:text-white'
-                                }`}>
+                                        }`}>
                                     HƯỚNG DẪN
                                     <svg className="ml-1 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                                     </svg>
-                                </button>
-                                
+                                </a>
+
                                 {/* Dropdown Menu */}
                                 <div className="absolute left-0 w-60 bg-white border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                                     <a href="/phuong-thuc-thanh-toan" className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-red-700 hover:text-white transition-colors">
@@ -149,13 +134,12 @@ export default function Header() {
                                     </a>
                                 </div>
                             </div>
-                            <a 
-                                href="/contact" 
-                                className={`px-4 py-2 rounded font-medium transition-colors text-base ${
-                                    isActive('/contact') 
-                                        ? 'bg-red-700 text-white' 
-                                        : 'text-gray-800 hover:bg-red-700 hover:text-white'
-                                }`}>
+                            <a
+                                href="/contact"
+                                className={`px-4 py-2 rounded font-medium transition-colors text-base ${isActive('/contact')
+                                    ? 'bg-red-700 text-white'
+                                    : 'text-gray-800 hover:bg-red-700 hover:text-white'
+                                    }`}>
                                 LIÊN HỆ
                             </a>
                         </nav>
