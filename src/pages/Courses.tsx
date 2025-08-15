@@ -39,7 +39,7 @@ export default function Courses() {
                     {courses.map((course) => (
                         <div key={course.id} className="text-center">
                             {/* Course Image */}
-                            <Link to={`/course/${course.id}`}>
+                            <Link to={`/courses/${course.id}`}>
                                 <img
                                     src={course.image}
                                     alt={course.title}
@@ -49,7 +49,7 @@ export default function Courses() {
 
                             {/* Course Title */}
                             <Link
-                                to={`/course/${course.id}`}
+                                to={`/courses/${course.id}`}
                                 className="text-xl font-medium text-gray-800 hover:text-blue-600 transition-colors duration-200"
                             >
                                 {course.title}
