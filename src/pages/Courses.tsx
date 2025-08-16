@@ -24,7 +24,7 @@ const courses: Course[] = [
         image: 'https://sakae-online.net/media/course/280x247x2-THU-Copy.jpg'
     },
     {
-        id: 'n1-n2-n3',
+        id: 'n321',
         title: 'Khóa luyện thi N3, N2, N1',
         image: 'https://sakae-online.net/media/course/280x247x2-JLPT-N3.jpg'
     }
@@ -39,7 +39,7 @@ export default function Courses() {
                     {courses.map((course) => (
                         <div key={course.id} className="text-center">
                             {/* Course Image */}
-                            <Link to={`/courses/${course.id}`}>
+                            <Link to={`/course/${course.id}`}>
                                 <img
                                     src={course.image}
                                     alt={course.title}
@@ -49,7 +49,7 @@ export default function Courses() {
 
                             {/* Course Title */}
                             <Link
-                                to={`/courses/${course.id}`}
+                                to={`/course/${course.id}`}
                                 className="text-xl font-medium text-gray-800 hover:text-blue-600 transition-colors duration-200"
                             >
                                 {course.title}

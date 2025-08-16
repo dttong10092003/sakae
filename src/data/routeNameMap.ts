@@ -7,6 +7,10 @@ export const routeNameMap: Record<string, string> = {
   news: "Tin tức",
   gallery: "Thư viện ảnh",
   faq: "Câu hỏi thường gặp",
+  "news-listing": "Tin tức",
+  
+  // News detail pages
+  new: "Chi tiết tin tức",
   
   // Course related
   "course-detail": "Chi tiết khóa học",

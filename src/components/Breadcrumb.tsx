@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { routeNameMap } from "../data/routeNameMap";
+import { newsItems } from "../data/newsData";
 
 interface BreadcrumbItem {
   label: string;
@@ -19,8 +20,25 @@ export default function Breadcrumb() {
     link: "/"
   });
 
+  // Handle news detail page (/new/:id)
+  if (pathnames[0] === "new" && pathnames[1]) {
+    breadcrumbItems.push({
+      label: routeNameMap["news"] || "Tin tức",
+      link: "/news"
+    });
+
+    // Find the news item by ID to get its title
+    const newsId = pathnames[1];
+    const newsItem = newsItems.find(item => item.id === newsId);
+    const newsTitle = newsItem ? newsItem.title : "Chi tiết tin tức";
+
+    breadcrumbItems.push({
+      label: newsTitle,
+      link: null
+    });
+  }
   // Handle course detail page specially
-  if (pathnames[0] === "course" && pathnames[1]) {
+  else if (pathnames[0] === "course" && pathnames[1]) {
     breadcrumbItems.push({
       label: "Khóa học",
       link: "/courses"

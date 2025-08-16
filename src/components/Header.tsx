@@ -79,19 +79,19 @@ export default function Header() {
 
                                 {/* Dropdown Menu */}
                                 <div className="absolute left-0 w-62 bg-white border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                                    <a href="/khoa-hoc-n5" className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-red-700 hover:text-white transition-colors">
+                                    <a href="/course/n5" className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-red-700 hover:text-white transition-colors">
                                         <ChevronRight className="w-4 h-4 mr-2" />
                                         Khóa học sơ cấp N5 online
                                     </a>
-                                    <a href="/khoa-hoc-n4" className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-red-700 hover:text-white transition-colors">
+                                    <a href="/course/n4" className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-red-700 hover:text-white transition-colors">
                                         <ChevronRight className="w-4 h-4 mr-2" />
                                         Khóa học sơ cấp N4 online
                                     </a>
-                                    <a href="/khoa-hoc-n3" className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-red-700 hover:text-white transition-colors">
+                                    <a href="/course/n3" className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-red-700 hover:text-white transition-colors">
                                         <ChevronRight className="w-4 h-4 mr-2" />
                                         Khóa học trung cấp N3 online
                                     </a>
-                                    <a href="/luyen-thi" className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-red-700 hover:text-white transition-colors">
+                                    <a href="/course/n321" className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-red-700 hover:text-white transition-colors">
                                         <ChevronRight className="w-4 h-4 mr-2" />
                                         Khóa luyện thi N3, N2, N1
                                     </a>
@@ -99,8 +99,8 @@ export default function Header() {
                             </div>
                             <div className="relative group">
                                 <a
-                                    href='/guides'
-                                    className={`px-4 py-2 rounded font-medium transition-colors flex items-center text-base ${isActive('/guides')
+                                    href='/news'
+                                    className={`px-4 py-2 rounded font-medium transition-colors flex items-center text-base ${isActive('/news')
                                         ? 'bg-red-700 text-white'
                                         : 'text-gray-800 hover:bg-red-700 hover:text-white'
                                         }`}>
