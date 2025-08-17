@@ -1,12 +1,12 @@
 import { useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { newsItems } from '../data/newsData'
-import NewsContent1 from '../components/new/NewsContent1'
-import NewsContent2 from '../components/new/NewsContent2'
-import NewsContent3 from '../components/new/NewsContent3'
-import NewsContent4 from '../components/new/NewsContent4'
+import NewsContent1 from '../components/news/NewsContent1'
+import NewsContent2 from '../components/news/NewsContent2'
+import NewsContent3 from '../components/news/NewsContent3'
+import NewsContent4 from '../components/news/NewsContent4'
 
-export default function NewDetail() {
+export default function NewsDetail() {
     const { id } = useParams<{ id: string }>()
 
     // Scroll to top when component mounts or ID changes
@@ -67,14 +67,14 @@ export default function NewDetail() {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-30">
                         {relatedArticles.map((article) => (
                             <div key={article.id} className="bg-white ">
-                                <Link to={`/new/${article.id}`}>
+                                <Link to={`/news/${article.id}`}>
                                     <img
                                         src={article.image}
                                         alt={article.title}
                                         className="bject-cover"
                                     />
                                 </Link>
-                                <Link to={`/new/${article.id}`}>
+                                <Link to={`/news/${article.id}`}>
                                     <h4 className="text-2xl text-blue-600 hover:text-blue-800 transition-colors mb-2 line-clamp-2 hover:underline">
                                         {article.title}
                                     </h4>

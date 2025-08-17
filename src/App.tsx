@@ -12,7 +12,12 @@ import CourseN3 from "./components/course/CourseN3";
 import CourseN321 from "./components/course/CourseN321";
 import News from "./pages/News";
 import NewsListing from "./pages/NewsListing";
-import NewDetail from "./pages/NewDetail";
+import NewsDetail from "./pages/NewsDetail";
+import PaymentMethods from "./pages/PaymentMethods";
+import EnrollmentGuide from "./pages/EnrollmentGuide";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
+import CourseExtensionPolicy from "./pages/CourseExtensionPolicy";
 
 import Layout from "./layouts/Layout";
 import HomeLayout from "./layouts/HomeLayout";
@@ -39,7 +44,12 @@ function App() {
         <Route path="login" element={<Login />} />
         <Route path="forgot-password" element={<ForgotPassword />} />
         <Route path="news" element={<News />} />
-        <Route path="new/:id" element={<NewDetail />} />
+        <Route path="news/:id" element={<NewsDetail />} />
+        <Route path="payment-methods" element={<PaymentMethods />} />
+        <Route path="enrollment-guide" element={<EnrollmentGuide />} />
+        <Route path="privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="terms-of-service" element={<TermsOfService />} />
+        <Route path="course-extension-policy" element={<CourseExtensionPolicy />} />
 
       </Route>
     </Routes>

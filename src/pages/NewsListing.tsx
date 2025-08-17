@@ -45,7 +45,7 @@ export default function NewsListing() {
                             <h2 className="text-3xl font-semibold text-gray-800 mb-4">TIN TỨC NỔI BẬT</h2>
                             {newsItems.map((item) => (
                                 <div key={item.id} className="bg-white border-b border-gray-200 overflow-hidden mb-4">
-                                    <Link to={`/new/${item.id}`}>
+                                    <Link to={`/news/${item.id}`}>
                                         <img
                                             src={item.image}
                                             alt={item.title}
@@ -53,7 +53,7 @@ export default function NewsListing() {
                                         />
                                     </Link>
                                     <div className="py-4">
-                                        <Link to={`/new/${item.id}`}>
+                                        <Link to={`/news/${item.id}`}>
                                             <h3 className="text-3xl text-blue-600 hover:text-blue-800 cursor-pointer transition-colors mb-2 leading-tight">
                                                 {item.title}
                                             </h3>
@@ -74,7 +74,7 @@ export default function NewsListing() {
                             {newsItems.slice().reverse().map((item) => (
                                 <div key={item.id} className="bg-white border-b border-gray-200">
                                     {/* News Image */}
-                                    <Link to={`/new/${item.id}`} className="block">
+                                    <Link to={`/news/${item.id}`} className="block">
                                         <img
                                             src={item.image}
                                             alt={item.title}
@@ -85,7 +85,7 @@ export default function NewsListing() {
                                     {/* News Content */}
                                     <div className="pb-16 pt-2">
                                         {/* News Title */}
-                                        <Link to={`/new/${item.id}`} className="block">
+                                        <Link to={`/news/${item.id}`} className="block">
                                             <h3 className="text-lg font-bold text-gray-800 mb-3 hover:text-blue-600 transition-colors duration-200 leading-tight cursor-pointer line-clamp-2 overflow-hidden">
                                                 {item.title}
                                             </h3>

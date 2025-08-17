@@ -112,23 +112,23 @@ export default function Header() {
 
                                 {/* Dropdown Menu */}
                                 <div className="absolute left-0 w-60 bg-white border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                                    <a href="/phuong-thuc-thanh-toan" className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-red-700 hover:text-white transition-colors">
+                                    <a href="/payment-methods" className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-red-700 hover:text-white transition-colors">
                                         <ChevronRight className="w-4 h-4 mr-2" />
                                         Phương thức thanh toán
                                     </a>
-                                    <a href="/huong-dan-vao-hoc" className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-red-700 hover:text-white transition-colors">
+                                    <a href="/enrollment-guide" className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-red-700 hover:text-white transition-colors">
                                         <ChevronRight className="w-4 h-4 mr-2" />
                                         Hướng dẫn vào học online
                                     </a>
-                                    <a href="/chinh-sach-gia-han" className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-red-700 hover:text-white transition-colors">
+                                    <a href="/course-extension-policy" className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-red-700 hover:text-white transition-colors">
                                         <ChevronRight className="w-4 h-4 mr-2" />
                                         Chính sách gia hạn khóa học
                                     </a>
-                                    <a href="/chinh-sach-bao-mat" className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-red-700 hover:text-white transition-colors">
+                                    <a href="/privacy-policy" className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-red-700 hover:text-white transition-colors">
                                         <ChevronRight className="w-4 h-4 mr-2" />
                                         Chính sách bảo mật
                                     </a>
-                                    <a href="/dieu-khoan-su-dung" className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-red-700 hover:text-white transition-colors">
+                                    <a href="/terms-of-service" className="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-red-700 hover:text-white transition-colors">
                                         <ChevronRight className="w-4 h-4 mr-2" />
                                         Điều khoản sử dụng
                                     </a>

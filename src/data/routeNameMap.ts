@@ -9,9 +9,6 @@ export const routeNameMap: Record<string, string> = {
   faq: "Câu hỏi thường gặp",
   "news-listing": "Tin tức",
   
-  // News detail pages
-  new: "Chi tiết tin tức",
-  
   // Course related
   "course-detail": "Chi tiết khóa học",
   "course-registration": "Đăng ký khóa học",
@@ -38,9 +35,12 @@ export const routeNameMap: Record<string, string> = {
   
   // Policies
   "privacy-policy": "Chính sách bảo mật",
-  "terms-of-service": "Điều khoản dịch vụ",
+  "terms-of-service": "Điều khoản sử dụng",
   "refund-policy": "Chính sách hoàn tiền",
-  
+  "payment-methods": "Phương thức thanh toán",
+  "course-extension-policy": "Chính sách gia hạn khóa học",
+  "enrollment-guide": "Hướng dẫn vào học online",
+
   // Support
   support: "Hỗ trợ",
   tutorial: "Hướng dẫn",

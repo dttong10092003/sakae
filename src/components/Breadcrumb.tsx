@@ -20,8 +20,8 @@ export default function Breadcrumb() {
     link: "/"
   });
 
-  // Handle news detail page (/new/:id)
-  if (pathnames[0] === "new" && pathnames[1]) {
+  // Handle news detail page (/news/:id)
+  if (pathnames[0] === "news" && pathnames[1]) {
     breadcrumbItems.push({
       label: routeNameMap["news"] || "Tin tức",
       link: "/news"

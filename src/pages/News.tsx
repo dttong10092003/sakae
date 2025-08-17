@@ -10,7 +10,7 @@ export default function News() {
                     {newsItems.map((item) => (
                         <div key={item.id} className="bg-white border-b border-gray-200">
                             {/* News Image */}
-                            <Link to={`/new/${item.id}`} className="block">
+                            <Link to={`/news/${item.id}`} className="block">
                                 <div className="aspect-w-4 aspect-h-3 overflow-hidden">
                                     <img
                                         src={item.image}
@@ -23,7 +23,7 @@ export default function News() {
                             {/* News Content */}
                             <div className="pt-2 pb-16 text-left">
                                 {/* News Title */}
-                                <Link to={`/new/${item.id}`} className="block">
+                                <Link to={`/news/${item.id}`} className="block">
                                     <h3 className="text-lg font-bold text-gray-800 mb-3 hover:text-[#4166b0] transition-colors duration-200 leading-tight cursor-pointer">
                                         {item.title}
                                     </h3>
