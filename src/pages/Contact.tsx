@@ -31,7 +31,7 @@ export default function Contact() {
                   </div>
                   
                   <div>
-                    <p>Điện thoại: 028.3720.1830- Zalo/ Hotline: 0945.716.530</p>
+                    <p>Điện thoại: 028.3720.1830 - Zalo/Hotline: 0945.716.530</p>
                   </div>
                   
                   <div>

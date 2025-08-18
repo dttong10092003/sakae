@@ -23,15 +23,15 @@ export default function Login() {
 
   return (
     <div className="bg-gray-100 pb-4 px-4">
-      <div className="max-w-7xl mx-auto flex items-center justify-cente px-4">
+      <div className="max-w-7xl mx-auto flex items-center justify-center px-4">
         <div className="w-full bg-white py-4">
           {/* Title */}
-          <div className="text-center mb-4 border-b-1 border-gray-300">
+          <div className="text-center mb-4 border-b-1 border-gray-300 mx-4">
             <h2 className="text-2xl font-semibold text-gray-800 pb-4">Đăng nhập</h2>
           </div>
 
           {/* Form */}
-          <form className="space-y-3 px-56" onSubmit={handleSubmit}>
+          <form className="space-y-3 px-4 sm:px-8 md:px-16 lg:px-32 xl:px-56" onSubmit={handleSubmit}>
             {/* Tên đăng nhập */}
             <div>
               <label htmlFor="username" className="block text-sm font-medium text-gray-700 mb-2">

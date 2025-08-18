@@ -30,7 +30,7 @@ export default function BannerWithForm() {
         {/* Banner Section - 3/4 width */}
         <div className="lg:w-3/4">
           <div className="relative">
-            <div className="relative h-[400px] md:h-[500px] lg:h-[600px] w-full">
+             <div className="relative h-[250px] sm:h-[350px] md:h-[400px] lg:h-[500px] xl:h-[600px] w-full overflow-hidden">
               {bannerImages.map((image, index) => (
                 <div
                   key={index}
@@ -41,7 +41,7 @@ export default function BannerWithForm() {
                   <img
                     src={image}
                     alt={`Banner ${index + 1}`}
-                    className="w-full h-full object-contain bg-gray-100"
+                    className="w-full h-full object-contain"
                   />
                 </div>
               ))}
